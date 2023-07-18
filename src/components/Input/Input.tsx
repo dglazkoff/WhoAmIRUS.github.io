@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import {concatClassNames} from "../../utils";
+import {concatClassNames} from "../../utils/common";
 
 import './Input.css';
 

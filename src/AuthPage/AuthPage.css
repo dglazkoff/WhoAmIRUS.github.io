@@ -17,10 +17,10 @@
     width: 300px;
     border-radius: 4px;
     background-color: #fff;
-    margin-top: 28px;
-    gap: 16px;;
+    margin-top: 1.8em;
+    gap: 1em;
 }
 
 .input-password {
-    margin-bottom: 16px;
+    margin-bottom: 1em;
 }

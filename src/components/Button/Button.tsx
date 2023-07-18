@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import {concatClassNames} from "../../utils";
+import {concatClassNames} from "../../utils/common";
 
 import './Button.css';
 

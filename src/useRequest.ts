@@ -1,4 +1,5 @@
 import {useCallback, useReducer} from "react";
+import {mockedFetch} from "./utils/mockedFetch";
 
 interface State {
     response: object | null;
@@ -40,25 +41,6 @@ const reducer = (state: State, action: Action) => {
     }
 }
 
-const withError = false;
-
-const mockedFetch: typeof fetch = (input: RequestInfo | URL, init?: RequestInit) => {
-    console.log(input);
-    console.log(init);
-
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (!withError) {
-                resolve({
-                    json: () => Promise.resolve({ data: 'some data' }),
-                } as Response);
-            } else {
-                reject(new Error('some error').message);
-            }
-        }, 2000);
-  })
-}
-
 type CustomRequestInit = Omit<RequestInit, 'body'> & { body: object };
 type UseRequestReturnType = [State, (requestInit?: CustomRequestInit) => Promise<void>]
 
@@ -82,7 +64,7 @@ export const useRequest = (path: string): UseRequestReturnType => {
 
             dispatch({ type: 'failure', payload: customError })
         }
-    }, []);
+    }, [path]);
 
     return [state, request];
 }

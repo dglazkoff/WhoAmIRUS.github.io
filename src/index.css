@@ -2,6 +2,10 @@
   --color-primary: #727d00;
 }
 
+html {
+  font-size: 14px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,6 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
 }
 
 code {
